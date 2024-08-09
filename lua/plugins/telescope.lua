@@ -14,6 +14,7 @@ return {
 		{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font }, -- Adds file icons if nerd fonts are enabled
 		{ "nvim-telescope/telescope-project.nvim" }, -- Project management extension
 		{ "nvim-telescope/telescope-file-browser.nvim" }, -- File browser extension
+		{ "cljoly/telescope-repo.nvim" }, -- Repository list
 	},
 	event = "VeryLazy", -- Load telescope.nvim lazily for faster startup
 	config = function()
@@ -99,18 +100,24 @@ return {
 		pcall(require("telescope").load_extension, "ui-select")
 		pcall(require("telescope").load_extension, "project")
 		pcall(require("telescope").load_extension, "file_browser")
+		pcall(require("telescope").load_extension, "repo")
 
 		-- Key mappings for Telescope functionalities
 		vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
 		vim.keymap.set("n", "<leader>sk", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
 		vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "[S]earch [F]iles" })
-		vim.keymap.set("n", "<leader>ss", builtin.builtin, { desc = "[S]earch [S]elect Telescope" })
+		vim.keymap.set(
+			"n",
+			"<leader>ss",
+			builtin.builtin,
+			{ desc = "[S]earch [S]elect - Show Telescope search options" }
+		)
 		vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
-		vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
+		vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep - Search text in files" })
 		vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
-		vim.keymap.set("n", "<leader>sr", builtin.resume, { desc = "[S]earch [R]esume" })
+		vim.keymap.set("n", "<leader>sr", builtin.resume, { desc = "[S]earch [R]esume - Resume previous search" })
 		vim.keymap.set("n", "<leader>s.", builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
-		vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
+		vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "Search open buffers" })
 
 		-- Overriding default behavior and theme
 		vim.keymap.set("n", "<leader>/", function()
@@ -118,7 +125,7 @@ return {
 				winblend = 10,
 				previewer = false,
 			}))
-		end, { desc = "[/] Fuzzily search in current buffer" })
+		end, { desc = "Search in teh current project" })
 
 		-- Additional configuration options
 		vim.keymap.set("n", "<leader>s/", function()
@@ -126,12 +133,12 @@ return {
 				grep_open_files = true,
 				prompt_title = "Live Grep in Open Files",
 			})
-		end, { desc = "[S]earch [/] in Open Files" })
+		end, { desc = "Search files with specific pattern" })
 
 		-- Shortcut for searching Neovim configuration files
 		vim.keymap.set("n", "<leader>sn", function()
 			builtin.find_files({ cwd = vim.fn.stdpath("config") })
-		end, { desc = "[S]earch [N]eovim files" })
+		end, { desc = "[S]earch [N]otes" })
 
 		-- Keybindings for project and file browser extensions
 		vim.keymap.set(
@@ -144,7 +151,7 @@ return {
 			"n",
 			"<leader>fb",
 			require("telescope").extensions.file_browser.file_browser,
-			{ desc = "[F]ile [B]rowser" }
+			{ desc = "[Search] [F]iles [B]rowser" }
 		)
 	end,
 }

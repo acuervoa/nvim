@@ -15,6 +15,6 @@ return {
 
 		vim.keymap.set("n", "<leader>l", function()
 			lint.try_lint()
-		end, { desc = "lint file" })
+		end, { desc = "Run linter on current file" })
 	end,
 }

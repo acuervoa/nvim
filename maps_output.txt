@@ -1,0 +1,153 @@
+
+n  <Esc><Esc>  * <Cmd>nohlsearch<CR>
+n  <Space>5    * <Lua 213: ~/.config/nvim/lua/plugins/harpoon.lua:17>
+n  <Space>4    * <Lua 212: ~/.config/nvim/lua/plugins/harpoon.lua:17>
+n  <Space>3    * <Lua 211: ~/.config/nvim/lua/plugins/harpoon.lua:17>
+n  <Space>2    * <Lua 210: ~/.config/nvim/lua/plugins/harpoon.lua:17>
+n  <Space>1    * <Lua 209: ~/.config/nvim/lua/plugins/harpoon.lua:17>
+v  <Space>ff   * <Lua 199: ~/.config/nvim/lua/plugins/conform.lua:30>
+                 format file
+n  <Space>ff   * <Lua 195: ~/.config/nvim/lua/plugins/conform.lua:30>
+                 format file
+v  <Space>gb   * :Git blame<CR>
+                 Git blame line
+n  <Space>gpu  * <Cmd>15 split|term git push<CR>
+                 Git push
+n  <Space>gpl  * <Cmd>Git pull<CR>
+                 Git pull
+n  <Space>gd   * <Cmd>Gdiffsplit<CR>
+                 Git diff
+n  <Space>gc   * <Cmd>Git commit<CR>
+                 Git commit
+n  <Space>gw   * <Cmd>Gwrite<CR>
+                 Git add
+n  <Space>gs   * <Cmd>Git<CR>
+                 Git status
+n  <Space>lg   * <Lua 72: ~/.local/share/nvim/lazy/lazy.nvim/lua/lazy/core/handler/keys.lua:121>
+                 LazyGit
+n  <Space>m    * <Lua 70: ~/.local/share/nvim/lazy/lazy.nvim/lua/lazy/core/handler/keys.lua:121>
+                 Toggle Treesitter Join
+n  <Space>d    * <Lua 47: ~/.local/share/nvim/lazy/lazy.nvim/lua/lazy/core/handler/keys.lua:121>
+                 Open Debug menu
+n  <Space>q    * <Lua 23: /usr/share/nvim/runtime/lua/vim/diagnostic.lua:1984>
+                 Open diagnostic [Q]uickix list
+x  #           * <Lua 7: vim/_defaults.lua:0>
+                 :help v_#-default
+n  &           * :&&<CR>
+                 :help &-default
+x  *           * <Lua 3: vim/_defaults.lua:0>
+                 :help v_star-default
+x  @           * mode() ==# 'V' ? ':normal! @'.getcharstr().'<CR>' : '@'
+                 :help v_@-default
+x  Q           * mode() ==# 'V' ? ':normal! @<C-R>=reg_recorded()<CR><CR>' : 'Q'
+                 :help v_Q-default
+n  Y           * y$
+                 :help Y-default
+n  [d          * <Lua 15: vim/_defaults.lua:0>
+                 Jump to the previous diagnostic
+n  ]d          * <Lua 14: vim/_defaults.lua:0>
+                 Jump to the next diagnostic
+o  al            <Lua 189: ~/.local/share/nvim/lazy/mini.nvim/lua/mini/ai.lua:1172>
+                 Around last textobject
+o  an            <Lua 188: ~/.local/share/nvim/lazy/mini.nvim/lua/mini/ai.lua:1172>
+                 Around next textobject
+x  al            <Lua 185: ~/.local/share/nvim/lazy/mini.nvim/lua/mini/ai.lua:1172>
+                 Around last textobject
+x  an            <Lua 184: ~/.local/share/nvim/lazy/mini.nvim/lua/mini/ai.lua:1172>
+                 Around next textobject
+o  a             <Lua 182: ~/.local/share/nvim/lazy/mini.nvim/lua/mini/ai.lua:1172>
+                 Around textobject
+x  a             <Lua 180: ~/.local/share/nvim/lazy/mini.nvim/lua/mini/ai.lua:1172>
+                 Around textobject
+o  g]            <Lua 179: ~/.local/share/nvim/lazy/mini.nvim/lua/mini/ai.lua:1169>
+                 Move to right "around"
+x  g]            <Lua 178: ~/.local/share/nvim/lazy/mini.nvim/lua/mini/ai.lua:1169>
+                 Move to right "around"
+n  g]            <Lua 177: ~/.local/share/nvim/lazy/mini.nvim/lua/mini/ai.lua:1169>
+                 Move to right "around"
+o  g[            <Lua 176: ~/.local/share/nvim/lazy/mini.nvim/lua/mini/ai.lua:1168>
+                 Move to left "around"
+x  g[            <Lua 175: ~/.local/share/nvim/lazy/mini.nvim/lua/mini/ai.lua:1168>
+                 Move to left "around"
+n  g[            <Lua 174: ~/.local/share/nvim/lazy/mini.nvim/lua/mini/ai.lua:1168>
+                 Move to left "around"
+o  gc          * <Lua 13: vim/_defaults.lua:0>
+                 Comment textobject
+n  gcc         * <Lua 31: ~/.local/share/nvim/lazy/lazy.nvim/lua/lazy/core/handler/keys.lua:121>
+                 Comment current line
+v  gc          * <Lua 12: ~/.local/share/nvim/lazy/lazy.nvim/lua/lazy/core/handler/keys.lua:121>
+                 Comment selected text
+n  gc          * <Lua 10: vim/_defaults.lua:0>
+                 Toggle comment
+x  gx          * <Lua 9: vim/_defaults.lua:0>
+                 Opens filepath or URI under cursor with the system handler (file explorer, web browser, …)
+n  gx          * <Lua 8: vim/_defaults.lua:0>
+                 Opens filepath or URI under cursor with the system handler (file explorer, web browser, …)
+o  il            <Lua 191: ~/.local/share/nvim/lazy/mini.nvim/lua/mini/ai.lua:1172>
+                 Inside last textobject
+o  in            <Lua 190: ~/.local/share/nvim/lazy/mini.nvim/lua/mini/ai.lua:1172>
+                 Inside next textobject
+x  il            <Lua 187: ~/.local/share/nvim/lazy/mini.nvim/lua/mini/ai.lua:1172>
+                 Inside last textobject
+x  in            <Lua 186: ~/.local/share/nvim/lazy/mini.nvim/lua/mini/ai.lua:1172>
+                 Inside next textobject
+o  i             <Lua 183: ~/.local/share/nvim/lazy/mini.nvim/lua/mini/ai.lua:1172>
+                 Inside textobject
+x  i             <Lua 181: ~/.local/share/nvim/lazy/mini.nvim/lua/mini/ai.lua:1172>
+                 Inside textobject
+n  shn         * <Lua 121: ~/.local/share/nvim/lazy/mini.nvim/lua/mini/surround.lua:1252>
+                 Highlight next surrounding
+n  sFn         * <Lua 120: ~/.local/share/nvim/lazy/mini.nvim/lua/mini/surround.lua:1252>
+                 Find next left surrounding
+n  sfn         * <Lua 119: ~/.local/share/nvim/lazy/mini.nvim/lua/mini/surround.lua:1252>
+                 Find next right surrounding
+n  srn         * <Lua 108: ~/.local/share/nvim/lazy/mini.nvim/lua/mini/surround.lua:1252>
+                 Replace next surrounding
+n  sdn         * <Lua 107: ~/.local/share/nvim/lazy/mini.nvim/lua/mini/surround.lua:1252>
+                 Delete next surrounding
+n  shl         * <Lua 92: ~/.local/share/nvim/lazy/mini.nvim/lua/mini/surround.lua:1252>
+                 Highlight previous surrounding
+n  sFl         * <Lua 90: ~/.local/share/nvim/lazy/mini.nvim/lua/mini/surround.lua:1252>
+                 Find previous left surrounding
+n  sfl         * <Lua 85: ~/.local/share/nvim/lazy/mini.nvim/lua/mini/surround.lua:1252>
+                 Find previous right surrounding
+n  srl         * <Lua 40: ~/.local/share/nvim/lazy/mini.nvim/lua/mini/surround.lua:1252>
+                 Replace previous surrounding
+n  sdl         * <Lua 11: ~/.local/share/nvim/lazy/mini.nvim/lua/mini/surround.lua:1252>
+                 Delete previous surrounding
+x  sa          * :<C-U>lua MiniSurround.add('visual')<CR>
+                 Add surrounding to selection
+n  sn          * <Lua 27: ~/.local/share/nvim/lazy/mini.nvim/lua/mini/surround.lua:892>
+                 Update `MiniSurround.config.n_lines`
+n  sh          * <Lua 32: ~/.local/share/nvim/lazy/mini.nvim/lua/mini/surround.lua:1252>
+                 Highlight surrounding
+n  sF          * <Lua 103: ~/.local/share/nvim/lazy/mini.nvim/lua/mini/surround.lua:1252>
+                 Find left surrounding
+n  sf          * <Lua 101: ~/.local/share/nvim/lazy/mini.nvim/lua/mini/surround.lua:1252>
+                 Find right surrounding
+n  sr          * <Lua 100: ~/.local/share/nvim/lazy/mini.nvim/lua/mini/surround.lua:1252>
+                 Replace surrounding
+n  sd          * <Lua 98: ~/.local/share/nvim/lazy/mini.nvim/lua/mini/surround.lua:1252>
+                 Delete surrounding
+n  sa          * <Lua 97: ~/.local/share/nvim/lazy/mini.nvim/lua/mini/surround.lua:1252>
+                 Add surrounding
+n  y<C-G>      & :<C-U>call setreg(v:register, fugitive#Object(@%))<CR>
+n  <M-h><M-l>  * <Lua 208: ~/.config/nvim/lua/plugins/harpoon.lua:11>
+n  <M-h><M-m>  * <Lua 205: ~/.config/nvim/lua/plugins/harpoon.lua:8>
+n  <Plug>fugitive: & <Nop>
+n  <Plug>fugitive:y<C-G> & :<C-U>call setreg(v:register, fugitive#Object(@%))<CR>
+n  <Plug>PlenaryTestFile * :lua require('plenary.test_harness').test_file(vim.fn.expand("%:p"))<CR>
+n  <C-T>       * <Lua 82: ~/.local/share/nvim/lazy/lazy.nvim/lua/lazy/core/handler/keys.lua:121>
+                 Open Test menu
+n  <C-K>       * <C-W><C-K>
+                 Move focus to the upper window
+n  <C-J>       * <C-W><NL>
+                 Move focus to the lower window
+n  <C-H>       * <C-W><C-H>
+                 Move focus to the left window
+n  <C-W><C-D>    <C-W>d
+                 Show diagnostics under the cursor
+n  <C-W>d      * <Lua 16: vim/_defaults.lua:0>
+                 Show diagnostics under the cursor
+n  <C-L>       * <C-W><C-L>
+                 Move focus to the right window

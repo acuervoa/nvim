@@ -1,0 +1,84 @@
+Mode | Key | Command
+---|---|---
+n | <Esc><Esc> | <Cmd>nohlsearch<CR>
+n |  5 | nil
+n |  4 | nil
+n |  3 | nil
+n |  2 | nil
+n |  1 | nil
+v |  gb | :Git blame<CR>
+n |  gpu | <Cmd>15 split|term git push<CR>
+n |  gpl | <Cmd>Git pull<CR>
+n |  gd | <Cmd>Gdiffsplit<CR>
+n |  gc | <Cmd>Git commit<CR>
+n |  gw | <Cmd>Gwrite<CR>
+n |  gs | <Cmd>Git<CR>
+v |  ff | nil
+n |  ff | nil
+n |  d | nil
+n |  m | nil
+n |  lg | nil
+n |  q | nil
+x | # | nil
+n | & | :&&<CR>
+x | * | nil
+x | @ | mode() ==# 'V' ? ':normal! @'.getcharstr().'<CR>' : '@'
+x | Q | mode() ==# 'V' ? ':normal! @<C-R>=reg_recorded()<CR><CR>' : 'Q'
+n | Y | y$
+n | [d | nil
+n | ]d | nil
+o | al | nil
+o | an | nil
+x | al | nil
+x | an | nil
+o | a | nil
+x | a | nil
+o | g] | nil
+x | g] | nil
+n | g] | nil
+o | g[ | nil
+x | g[ | nil
+n | g[ | nil
+o | gc | nil
+n | gcc | nil
+v | gc | nil
+n | gc | nil
+x | gx | nil
+n | gx | nil
+o | il | nil
+o | in | nil
+x | il | nil
+x | in | nil
+o | i | nil
+x | i | nil
+n | shn | nil
+n | sFn | nil
+n | sfn | nil
+n | srn | nil
+n | sdn | nil
+n | shl | nil
+n | sFl | nil
+n | sfl | nil
+n | srl | nil
+n | sdl | nil
+x | sa | :<C-U>lua MiniSurround.add('visual')<CR>
+n | sn | nil
+n | sh | nil
+n | sF | nil
+n | sf | nil
+n | sr | nil
+n | sd | nil
+n | sa | nil
+n | y<C-G> | :<C-U>call setreg(v:register, fugitive#Object(@%))<CR>
+n | <M-h><M-l> | nil
+n | <M-h><M-m> | nil
+n | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_file(vim.fn.expand("%:p"))<CR>
+n | <Plug>fugitive: | 
+n | <Plug>fugitive:y<C-G> | :<C-U>call setreg(v:register, fugitive#Object(@%))<CR>
+n | <C-T> | nil
+n | <C-K> | <C-W><C-K>
+n | <C-J> | <C-W><NL>
+n | <C-H> | <C-W><C-H>
+n | <C-W><C-D> | <C-W>d
+n | <C-W>d | nil
+n | <C-L> | <C-W><C-L>

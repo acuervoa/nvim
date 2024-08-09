@@ -33,7 +33,7 @@ return {
 				async = false,
 				timeout_ms = 500,
 			})
-		end, { desc = "format file" })
+		end, { desc = "Format current file or selection" })
 
 		vim.api.nvim_create_user_command("Format", function(args)
 			local range = nil

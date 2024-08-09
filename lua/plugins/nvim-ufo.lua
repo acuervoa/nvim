@@ -47,13 +47,13 @@ return {
 			fold_virt_text_handler = handler,
 		})
 
-		vim.keymap.set("n", "zR", require("ufo").openAllFolds)
-		vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
-		vim.keymap.set("n", "zr", require("ufo").openFoldsExceptKinds)
+		vim.keymap.set("n", "zR", require("ufo").openAllFolds, { desc = "Open all folds" })
+		vim.keymap.set("n", "zM", require("ufo").closeAllFolds, { desc = "Close all folds" })
+		vim.keymap.set("n", "zr", require("ufo").openFoldsExceptKinds, { desc = "Open some folds" })
 		vim.keymap.set("n", "<leader>K", function()
 			local _ = require("ufo").peekFoldedLinesUnderCursor()
 		end, {
-			desc = "Preview folded maps",
+			desc = "Search definitions with LSP and UFO",
 		})
 	end,
 }

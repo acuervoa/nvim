@@ -1,2 +1,2 @@
-require "config"
-require "personal.globals"
+require("config")
+require("personal.globals")

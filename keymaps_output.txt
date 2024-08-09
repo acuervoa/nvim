@@ -1,0 +1,180 @@
+Mode: n | Key: <CR> | Command: No Command or Description
+Mode: n | Key: <Esc><Esc> | Command: <Cmd>nohlsearch<CR>
+Mode: v | Key:  s | Command: <Cmd>'<lt>,'>sort<CR>
+Mode: n | Key:  sq | Command: <Cmd>Telescope quickfix<CR>
+Mode: n | Key:  sc | Command: <Cmd>Telescope colorscheme<CR>
+Mode: n | Key:  sH | Command: <Cmd>lua require("plugins.telescope").command_history()<CR>
+Mode: n | Key:  pt | Command: <Cmd>TodoTrouble<CR>
+Mode: n | Key:  pl | Command: <Cmd>lua require'telescope'.extensions.repo.cached_list{file_ignore_patterns={'/%.cache/', '/%.cargo/', '/%.local/', '/%timeshift/', '/usr/', '/srv/', '/%.oh%-my%-zsh', '/Library/', '/%.cocoapods/'}}<CR>
+Mode: n | Key:  gp | Command: <Cmd>Octo pr list<CR>
+Mode: n | Key:  glc | Command: <Cmd>LazyGitFilterCurrentFile<CR>
+Mode: n | Key:  gla | Command: <Cmd>LazyGitFilter<CR>
+Mode: n | Key:  glC | Command: <Cmd>lua require("plugins.telescope").my_git_bcommits()<CR>
+Mode: n | Key:  glA | Command: <Cmd>lua require("plugins.telescope").my_git_commits()<CR>
+Mode: n | Key:  gi | Command: <Cmd>Octo issue list<CR>
+Mode: n | Key:  gb | Command: <Cmd>lua require("internal.blame").open()<CR>
+Mode: n | Key:  ga | Command: <Cmd>!git add %:p<CR>
+Mode: n | Key:  gB | Command: <Cmd>Telescope git_branches<CR>
+Mode: n | Key:  gA | Command: <Cmd>!git add .<CR>
+Mode: n | Key:  ct | Command: <Cmd>LspToggleAutoFormat<CR>
+Mode: n | Key:  cd | Command: <Cmd>Trouble diagnostics toggle<CR>
+Mode: n | Key:  cD | Command: <Cmd>Telescope diagnostics wrap_results=true<CR>
+Mode: n | Key:  bf | Command: <Cmd>bfirst<CR>
+Mode: n | Key:  bc | Command: <Cmd>lua require("utils").closeOtherBuffers()<CR>
+Mode: n | Key:  ar | Command: <Cmd>set norelativenumber!<CR>
+Mode: n | Key:  an | Command: <Cmd>set nonumber!<CR>
+Mode: n | Key:  /u | Command: <Cmd>Lazy update<CR>
+Mode: n | Key:  /i | Command: <Cmd>Lazy<CR>
+Mode: n | Key:  /c | Command: <Cmd>e $MYVIMRC<CR>
+Mode: n | Key:  // | Command: <Cmd>Alpha<CR>
+Mode: n | Key:  v | Command: <C-W>v
+Mode: n | Key:  V | Command: <C-W>s
+Mode: n | Key:  = | Command: <Cmd>vertical resize +5<CR>
+Mode: n | Key:  - | Command: <Cmd>vertical resize -5<CR>
+Mode: n | Key:  K | Command: Preview folded maps
+Mode: n | Key:  fb | Command: [F]ile [B]rowser
+Mode: n | Key:  sp | Command: [S]earch [P]rojects
+Mode: n | Key:  sn | Command: [S]earch [N]eovim files
+Mode: n | Key:  s/ | Command: [S]earch [/] in Open Files
+Mode: n | Key:  / | Command: [/] Fuzzily search in current buffer
+Mode: n | Key:    | Command: [ ] Find existing buffers
+Mode: n | Key:  s. | Command: [S]earch Recent Files ("." for repeat)
+Mode: n | Key:  sr | Command: [S]earch [R]esume
+Mode: n | Key:  sd | Command: <Cmd>lua require("plugins.telescope").edit_neovim()<CR>
+Mode: n | Key:  sg | Command: [S]earch by [G]rep
+Mode: n | Key:  sw | Command: [S]earch current [W]ord
+Mode: n | Key:  ss | Command: <Cmd>Telescope search_history theme=dropdown<CR>
+Mode: n | Key:  sf | Command: [S]earch [F]iles
+Mode: n | Key:  sk | Command: [S]earch [K]eymaps
+Mode: n | Key:  sh | Command: <Cmd>Telescope oldfiles hidden=true<CR>
+Mode: n | Key:  ee | Command: :vsp .env<CR>
+Mode: n | Key:  fz | Command: No Command or Description
+Mode: n | Key:  bd | Command: :bd!<CR>
+Mode: n | Key:   x | Command: <Cmd>source %<CR><Cmd>lua print("File sourced")<CR>
+Mode: n | Key:  l | Command: lint file
+Mode: v | Key:  ff | Command: format file
+Mode: n | Key:  ff | Command: format file
+Mode: n | Key:  5 | Command: No Command or Description
+Mode: n | Key:  4 | Command: No Command or Description
+Mode: n | Key:  3 | Command: No Command or Description
+Mode: n | Key:  2 | Command: No Command or Description
+Mode: n | Key:  1 | Command: No Command or Description
+Mode: v | Key:  gb | Command: :Git blame<CR>
+Mode: n | Key:  gpu | Command: <Cmd>15 split|term git push<CR>
+Mode: n | Key:  gpl | Command: <Cmd>Git pull<CR>
+Mode: n | Key:  gd | Command: <Cmd>Gdiffsplit<CR>
+Mode: n | Key:  gc | Command: <Cmd>Git commit<CR>
+Mode: n | Key:  gw | Command: <Cmd>Gwrite<CR>
+Mode: n | Key:  gs | Command: <Cmd>Telescope git_status<CR>
+Mode: n | Key:  d | Command: Open Debug menu
+Mode: n | Key:  m | Command: Toggle Treesitter Join
+Mode: n | Key:  lg | Command: LazyGit
+Mode: n | Key:  q | Command: Open diagnostic [Q]uickix list
+Mode: x | Key: # | Command: :help v_#-default
+Mode: n | Key: & | Command: :&&<CR>
+Mode: x | Key: * | Command: :help v_star-default
+Mode: v | Key: <lt> | Command: <lt>gv
+Mode: v | Key: > | Command: >gv
+Mode: x | Key: @ | Command: mode() ==# 'V' ? ':normal! @'.getcharstr().'<CR>' : '@'
+Mode: n | Key: J | Command: mzJ`z
+Mode: n | Key: N | Command: Nzzzv
+Mode: x | Key: Q | Command: mode() ==# 'V' ? ':normal! @<C-R>=reg_recorded()<CR><CR>' : 'Q'
+Mode: x | Key: S | Command: <Plug>(nvim-surround-visual)
+Mode: n | Key: Y | Command: y$
+Mode: n | Key: [d | Command: No Command or Description
+Mode: n | Key: ]d | Command: No Command or Description
+Mode: o | Key: al | Command: Around last textobject
+Mode: o | Key: an | Command: Around next textobject
+Mode: x | Key: al | Command: Around last textobject
+Mode: x | Key: an | Command: Around next textobject
+Mode: o | Key: a | Command: Around textobject
+Mode: x | Key: a | Command: Around textobject
+Mode: n | Key: cS | Command: <Plug>(nvim-surround-change-line)
+Mode: n | Key: cs | Command: <Plug>(nvim-surround-change)
+Mode: n | Key: ds | Command: <Plug>(nvim-surround-delete)
+Mode: o | Key: f | Command: nvim-hop char2
+Mode: v | Key: f | Command: nvim-hop char2
+Mode: n | Key: f | Command: nvim-hop char2
+Mode: x | Key: gS | Command: <Plug>(nvim-surround-visual-line)
+Mode: o | Key: g] | Command: Move to right "around"
+Mode: x | Key: g] | Command: Move to right "around"
+Mode: n | Key: g] | Command: Move to right "around"
+Mode: o | Key: g[ | Command: Move to left "around"
+Mode: x | Key: g[ | Command: Move to left "around"
+Mode: n | Key: g[ | Command: Move to left "around"
+Mode: o | Key: gc | Command: Comment textobject
+Mode: n | Key: gcc | Command: Comment current line
+Mode: v | Key: gc | Command: Comment selected text
+Mode: n | Key: gc | Command: Toggle comment
+Mode: x | Key: gx | Command: Opens filepath or URI under cursor with the system handler (file explorer, web browser, …)
+Mode: n | Key: gx | Command: Opens filepath or URI under cursor with the system handler (file explorer, web browser, …)
+Mode: o | Key: il | Command: Inside last textobject
+Mode: o | Key: in | Command: Inside next textobject
+Mode: x | Key: il | Command: Inside last textobject
+Mode: x | Key: in | Command: Inside next textobject
+Mode: o | Key: i | Command: Inside textobject
+Mode: x | Key: i | Command: Inside textobject
+Mode: n | Key: n | Command: nzzzv
+Mode: n | Key: shn | Command: Highlight next surrounding
+Mode: n | Key: sFn | Command: Find next left surrounding
+Mode: n | Key: sfn | Command: Find next right surrounding
+Mode: n | Key: srn | Command: Replace next surrounding
+Mode: n | Key: sdn | Command: Delete next surrounding
+Mode: n | Key: shl | Command: Highlight previous surrounding
+Mode: n | Key: sFl | Command: Find previous left surrounding
+Mode: n | Key: sfl | Command: Find previous right surrounding
+Mode: n | Key: srl | Command: Replace previous surrounding
+Mode: n | Key: sdl | Command: Delete previous surrounding
+Mode: x | Key: sa | Command: :<C-U>lua MiniSurround.add('visual')<CR>
+Mode: n | Key: sn | Command: Update `MiniSurround.config.n_lines`
+Mode: n | Key: sh | Command: Highlight surrounding
+Mode: n | Key: sF | Command: Find left surrounding
+Mode: n | Key: sf | Command: Find right surrounding
+Mode: n | Key: sr | Command: Replace surrounding
+Mode: n | Key: sd | Command: Delete surrounding
+Mode: n | Key: sa | Command: Add surrounding
+Mode: n | Key: ySS | Command: <Plug>(nvim-surround-normal-cur-line)
+Mode: n | Key: yS | Command: <Plug>(nvim-surround-normal-line)
+Mode: n | Key: yss | Command: <Plug>(nvim-surround-normal-cur)
+Mode: n | Key: ys | Command: <Plug>(nvim-surround-normal)
+Mode: n | Key: y<C-G> | Command: :<C-U>call setreg(v:register, fugitive#Object(@%))<CR>
+Mode: n | Key: zr | Command: No Command or Description
+Mode: n | Key: zM | Command: No Command or Description
+Mode: n | Key: zR | Command: No Command or Description
+Mode: s | Key: <C-N> | Command: cmp.utils.keymap.set_map
+Mode: s | Key: <C-P> | Command: cmp.utils.keymap.set_map
+Mode: s | Key: <Plug>luasnip-jump-prev | Command: LuaSnip: Jump to the previous node
+Mode: s | Key: <Plug>luasnip-jump-next | Command: LuaSnip: Jump to the next node
+Mode: s | Key: <Plug>luasnip-prev-choice | Command: LuaSnip: Change to the previous choice from the choiceNode
+Mode: s | Key: <Plug>luasnip-next-choice | Command: LuaSnip: Change to the next choice from the choiceNode
+Mode: s | Key: <Plug>luasnip-expand-snippet | Command: LuaSnip: Expand the current snippet
+Mode: s | Key: <Plug>luasnip-expand-or-jump | Command: LuaSnip: Expand or jump in the current snippet
+Mode:   | Key: <Plug>luasnip-expand-repeat | Command: LuaSnip: Repeat last node expansion
+Mode: n | Key: <Plug>luasnip-delete-check | Command: LuaSnip: Removes current snippet from jumplist
+Mode: n | Key: <Plug>(nvim-surround-change-line) | Command: Change a surrounding pair, putting replacements on new lines
+Mode: n | Key: <Plug>(nvim-surround-change) | Command: Change a surrounding pair
+Mode: n | Key: <Plug>(nvim-surround-delete) | Command: Delete a surrounding pair
+Mode: x | Key: <Plug>(nvim-surround-visual-line) | Command: Add a surrounding pair around a visual selection, on new lines
+Mode: x | Key: <Plug>(nvim-surround-visual) | Command: Add a surrounding pair around a visual selection
+Mode: n | Key: <Plug>(nvim-surround-normal-cur-line) | Command: Add a surrounding pair around the current line, on new lines (normal mode)
+Mode: n | Key: <Plug>(nvim-surround-normal-line) | Command: Add a surrounding pair around a motion, on new lines (normal mode)
+Mode: n | Key: <Plug>(nvim-surround-normal-cur) | Command: Add a surrounding pair around the current line (normal mode)
+Mode: n | Key: <Plug>(nvim-surround-normal) | Command: Add a surrounding pair around a motion (normal mode)
+Mode: n | Key: <M-k> | Command: No Command or Description
+Mode: n | Key: <M-j> | Command: No Command or Description
+Mode: n | Key: <M-s> | Command: <C-W>5-
+Mode: n | Key: <M-t> | Command: <C-W>5+
+Mode: n | Key: <M-.> | Command: <C-W>5>
+Mode: n | Key: <M-,> | Command: <C-W>5<lt>
+Mode: n | Key: <M-h><M-l> | Command: No Command or Description
+Mode: n | Key: <M-h><M-m> | Command: No Command or Description
+Mode: n | Key: <Plug>PlenaryTestFile | Command: :lua require('plenary.test_harness').test_file(vim.fn.expand("%:p"))<CR>
+Mode: n | Key: <Plug>fugitive: | Command: 
+Mode: n | Key: <Plug>fugitive:y<C-G> | Command: :<C-U>call setreg(v:register, fugitive#Object(@%))<CR>
+Mode: n | Key: <C-T> | Command: Open Test menu
+Mode: n | Key: <C-K> | Command: <C-W><C-K>
+Mode: n | Key: <C-J> | Command: <C-W><NL>
+Mode: n | Key: <C-H> | Command: <C-W><C-H>
+Mode: n | Key: <C-W><C-D> | Command: <C-W>d
+Mode: n | Key: <C-W>d | Command: Show diagnostics under the cursor
+Mode: n | Key: <C-L> | Command: <C-W><C-L>

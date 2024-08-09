@@ -60,7 +60,7 @@ return {
 			},
 			--filter = false, -- Enable this to hide mappings for which you didn't specigy a label
 			show_help = true, -- show help message on the command line when the popup is visible
-			triggers = { "<leader>", "<LocalLeader>" },
+			triggers = { "<leader>", "<M>" },
 		})
 		local opts = {
 			mode = "n", -- NORMAL mode
@@ -80,200 +80,520 @@ return {
 			nowait = false, -- use `nowait` when creating keymaps
 		}
 
+		local wk = require("which-key")
+
+		-- Mapeos en modo normal
 		local normal_mode_mappings = {
-			{ "<leader>-", "<cmd>vertical resize -5<CR>", desc = "resize +5", nowait = false, remap = false },
+			{ "<leader>", "<cmd>WhichKey<CR>", desc = "Show all keymaps" },
+			-- Resizing y Splitting
+			{
+				"<leader>-",
+				"<cmd>vertical resize -5<CR>",
+				desc = "Decrease vertical window size by 5",
+				nowait = false,
+				remap = false,
+			},
+			{
+				"<leader>=",
+				"<cmd>vertical resize +5<CR>",
+				desc = "Increase vertical window size by 5",
+				nowait = false,
+				remap = false,
+			},
+			{ "<leader>V", "<C-W>s", desc = "Split window below", nowait = false, remap = false },
+			{ "<leader>v", "<C-W>v", desc = "Split window right", nowait = false, remap = false },
+
+			-- Ecovim y Gestión de Sesiones
 			{ "<leader>/", group = "Ecovim", nowait = false, remap = false },
-			{ "<leader>//", "<cmd>Alpha<CR>", desc = "open dashboard", nowait = false, remap = false },
-			{ "<leader>/c", "<cmd>e $MYVIMRC<CR>", desc = "open config", nowait = false, remap = false },
-			{ "<leader>/i", "<cmd>Lazy<CR>", desc = "manage plugins", nowait = false, remap = false },
-			{ "<leader>/s", group = "Session", nowait = false, remap = false },
-			{ "<leader>/u", "<cmd>Lazy update<CR>", desc = "update plugins", nowait = false, remap = false },
-			{ "<leader>1", hidden = true, nowait = false, remap = false },
-			{ "<leader>2", hidden = true, nowait = false, remap = false },
-			{ "<leader>3", hidden = true, nowait = false, remap = false },
-			{ "<leader>4", hidden = true, nowait = false, remap = false },
-			{ "<leader>5", hidden = true, nowait = false, remap = false },
-			{ "<leader>6", hidden = true, nowait = false, remap = false },
-			{ "<leader>7", hidden = true, nowait = false, remap = false },
-			{ "<leader>8", hidden = true, nowait = false, remap = false },
-			{ "<leader>9", hidden = true, nowait = false, remap = false },
-			{ "<leader>=", "<cmd>vertical resize +5<CR>", desc = "resize +5", nowait = false, remap = false },
-			{ "<leader>V", "<C-W>s", desc = "split below", nowait = false, remap = false },
+			{ "<leader>//", "<cmd>Alpha<CR>", desc = "Open dashboard", nowait = false, remap = false },
+			{ "<leader>/c", "<cmd>e $MYVIMRC<CR>", desc = "Open Neovim config", nowait = false, remap = false },
+			{ "<leader>/i", "<cmd>Lazy<CR>", desc = "Manage plugins with Lazy", nowait = false, remap = false },
+			{ "<leader>/u", "<cmd>Lazy update<CR>", desc = "Update plugins", nowait = false, remap = false },
+
+			-- Buffers Ocultos
+			{ "<leader>1", hidden = true, desc = "Hidden buffer 1", nowait = false, remap = false },
+			{ "<leader>2", hidden = true, desc = "Hidden buffer 2", nowait = false, remap = false },
+			{ "<leader>3", hidden = true, desc = "Hidden buffer 3", nowait = false, remap = false },
+			{ "<leader>4", hidden = true, desc = "Hidden buffer 4", nowait = false, remap = false },
+			{ "<leader>5", hidden = true, desc = "Hidden buffer 5", nowait = false, remap = false },
+			{ "<leader>6", hidden = true, desc = "Hidden buffer 6", nowait = false, remap = false },
+			{ "<leader>7", hidden = true, desc = "Hidden buffer 7", nowait = false, remap = false },
+			{ "<leader>8", hidden = true, desc = "Hidden buffer 8", nowait = false, remap = false },
+			{ "<leader>9", hidden = true, desc = "Hidden buffer 9", nowait = false, remap = false },
+
+			-- Acciones Generales y Gestión de Buffers
 			{ "<leader>a", group = "Actions", nowait = false, remap = false },
-			{ "<leader>an", "<cmd>set nonumber!<CR>", desc = "line numbers", nowait = false, remap = false },
-			{ "<leader>ar", "<cmd>set norelativenumber!<CR>", desc = "relative number", nowait = false, remap = false },
+			{ "<leader>an", "<cmd>set nonumber!<CR>", desc = "Toggle line numbers", nowait = false, remap = false },
+			{
+				"<leader>ar",
+				"<cmd>set norelativenumber!<CR>",
+				desc = "Toggle relative line numbers",
+				nowait = false,
+				remap = false,
+			},
 			{ "<leader>b", group = "Buffer", nowait = false, remap = false },
 			{
 				"<leader>bc",
 				'<cmd>lua require("utils").closeOtherBuffers()<CR>',
-				desc = "Close but current",
+				desc = "Close all buffers except current",
 				nowait = false,
 				remap = false,
 			},
-			{ "<leader>bf", "<cmd>bfirst<CR>", desc = "First buffer", nowait = false, remap = false },
+			{ "<leader>bf", "<cmd>bfirst<CR>", desc = "Go to first buffer", nowait = false, remap = false },
+			{ "<leader>bd", ":bd!<CR>", desc = "Force close the current buffer", nowait = false, remap = false },
 			{ "<leader>bs", group = "Sort", nowait = false, remap = false },
-			{ "<leader>c", group = "LSP", nowait = false, remap = false },
+
+			-- LSP y Depuración (se cambia <leader> por <M>)
+			{ "<M-c>", group = "LSP", nowait = false, remap = false },
 			{
-				"<leader>cD",
+				"<M-c>D",
 				"<cmd>Telescope diagnostics wrap_results=true<CR>",
-				desc = "workspace diagnostics",
+				desc = "Workspace diagnostics",
 				nowait = false,
 				remap = false,
 			},
-			{ "<leader>cR", desc = "structural replace", nowait = false, remap = false },
-			{ "<leader>ca", desc = "code action", nowait = false, remap = false },
+			{ "<M-c>a", "<cmd>lua vim.lsp.buf.code_action()<CR>", desc = "Code action", nowait = false, remap = false },
 			{
-				"<leader>cd",
-				"<cmd>Trouble diagnostics toggle<CR>",
-				desc = "local diagnostics",
+				"<M-c>d",
+				"<cmd>TroubleToggle<CR>",
+				desc = "Toggle diagnostics in Trouble",
 				nowait = false,
 				remap = false,
 			},
-			{ "<leader>cf", desc = "format", nowait = false, remap = false },
-			{ "<leader>cl", desc = "line diagnostics", nowait = false, remap = false },
-			{ "<leader>cr", desc = "rename", nowait = false, remap = false },
+			{ "<M-c>f", "<cmd>lua vim.lsp.buf.format()<CR>", desc = "Format code", nowait = false, remap = false },
 			{
-				"<leader>ct",
-				"<cmd>LspToggleAutoFormat<CR>",
-				desc = "toggle format on save",
+				"<M-c>l",
+				"<cmd>lua vim.diagnostic.open_float()<CR>",
+				desc = "Line diagnostics",
 				nowait = false,
 				remap = false,
 			},
-			{ "<leader>d", group = "Debug", nowait = false, remap = false },
-			{ "<leader>dC", desc = "close UI", nowait = false, remap = false },
-			{ "<leader>dO", desc = "step out", nowait = false, remap = false },
-			{ "<leader>dU", desc = "open UI", nowait = false, remap = false },
-			{ "<leader>dV", desc = "log variable above", nowait = false, remap = false },
-			{ "<leader>da", desc = "attach", nowait = false, remap = false },
-			{ "<leader>db", desc = "breakpoint", nowait = false, remap = false },
-			{ "<leader>dc", desc = "continue", nowait = false, remap = false },
-			{ "<leader>dd", desc = "continue", nowait = false, remap = false },
-			{ "<leader>dh", desc = "visual hover", nowait = false, remap = false },
-			{ "<leader>di", desc = "step into", nowait = false, remap = false },
-			{ "<leader>do", desc = "step over", nowait = false, remap = false },
-			{ "<leader>dr", desc = "repl", nowait = false, remap = false },
-			{ "<leader>ds", desc = "scopes", nowait = false, remap = false },
-			{ "<leader>dt", desc = "terminate", nowait = false, remap = false },
-			{ "<leader>dv", desc = "log variable", nowait = false, remap = false },
-			{ "<leader>dw", desc = "watches", nowait = false, remap = false },
-			{ "<leader>g", group = "Git", nowait = false, remap = false },
-			{ "<leader>gA", "<cmd>!git add .<CR>", desc = "add all", nowait = false, remap = false },
-			{ "<leader>gB", "<cmd>Telescope git_branches<CR>", desc = "branches", nowait = false, remap = false },
-			{ "<leader>ga", "<cmd>!git add %:p<CR>", desc = "add current", nowait = false, remap = false },
+			{ "<M-c>r", "<cmd>lua vim.lsp.buf.rename()<CR>", desc = "Rename symbol", nowait = false, remap = false },
+			{ "<M-c>t", "<cmd>LspToggleAutoFormat<CR>", desc = "Toggle format on save", nowait = false, remap = false },
+
+			-- Debugging (se cambia <leader> por <M>)
+			{ "<M-d>", group = "Debug", nowait = false, remap = false },
 			{
-				"<leader>gb",
-				'<cmd>lua require("internal.blame").open()<CR>',
-				desc = "blame",
+				"<M-d>C",
+				"<cmd>lua require'dap'.terminate()<CR>",
+				desc = "Terminate debug session",
 				nowait = false,
 				remap = false,
 			},
-			{ "<leader>gc", group = "Conflict", nowait = false, remap = false },
-			{ "<leader>gh", group = "Hunk", nowait = false, remap = false },
-			{ "<leader>gi", "<cmd>Octo issue list<CR>", desc = "Issues List", nowait = false, remap = false },
-			{ "<leader>gl", group = "Log", nowait = false, remap = false },
+			{ "<M-d>O", "<cmd>lua require'dap'.step_out()<CR>", desc = "Step out", nowait = false, remap = false },
 			{
-				"<leader>glA",
-				'<cmd>lua require("plugins.telescope").my_git_commits()<CR>',
-				desc = "commits (Telescope)",
+				"<M-d>U",
+				"<cmd>lua require'dapui'.toggle()<CR>",
+				desc = "Toggle debug UI",
+				nowait = false,
+				remap = false,
+			},
+			{ "<M-d>V", "<cmd>lua require'dap'.up()<CR>", desc = "Step up", nowait = false, remap = false },
+			{
+				"<M-d>a",
+				"<cmd>lua require'dap'.continue()<CR>",
+				desc = "Continue execution",
 				nowait = false,
 				remap = false,
 			},
 			{
-				"<leader>glC",
-				'<cmd>lua require("plugins.telescope").my_git_bcommits()<CR>',
-				desc = "buffer commits (Telescope)",
+				"<M-d>b",
+				"<cmd>lua require'dap'.toggle_breakpoint()<CR>",
+				desc = "Toggle breakpoint",
 				nowait = false,
 				remap = false,
 			},
-			{ "<leader>gla", "<cmd>LazyGitFilter<CR>", desc = "commits", nowait = false, remap = false },
 			{
-				"<leader>glc",
-				"<cmd>LazyGitFilterCurrentFile<CR>",
-				desc = "buffer commits",
+				"<M-d>c",
+				"<cmd>lua require'dap'.continue()<CR>",
+				desc = "Continue execution",
 				nowait = false,
 				remap = false,
 			},
-			{ "<leader>gm", desc = "blame line", nowait = false, remap = false },
-			{ "<leader>gp", "<cmd>Octo pr list<CR>", desc = "Pull Requests List", nowait = false, remap = false },
-			{ "<leader>gs", "<cmd>Telescope git_status<CR>", desc = "telescope status", nowait = false, remap = false },
-			{ "<leader>gw", group = "Worktree", nowait = false, remap = false },
-			{ "<leader>gwc", desc = "create worktree", nowait = false, remap = false },
-			{ "<leader>gww", desc = "worktrees", nowait = false, remap = false },
-			{ "<leader>p", group = "Project", nowait = false, remap = false },
-			{ "<leader>pf", desc = "file", nowait = false, remap = false },
+			{ "<M-d>d", "<cmd>lua require'dap'.run_last()<CR>", desc = "Run last", nowait = false, remap = false },
 			{
-				"<leader>pl",
+				"<M-d>h",
+				"<cmd>lua require'dap.ui.widgets'.hover()<CR>",
+				desc = "Debug hover",
+				nowait = false,
+				remap = false,
+			},
+			{ "<M-d>i", "<cmd>lua require'dap'.step_into()<CR>", desc = "Step into", nowait = false, remap = false },
+			{ "<M-d>o", "<cmd>lua require'dap'.step_over()<CR>", desc = "Step over", nowait = false, remap = false },
+			{
+				"<M-d>r",
+				"<cmd>lua require'dap'.repl.toggle()<CR>",
+				desc = "Toggle REPL",
+				nowait = false,
+				remap = false,
+			},
+			{
+				"<M-d>s",
+				"<cmd>lua require'dap'.list_breakpoints()<CR>",
+				desc = "List breakpoints",
+				nowait = false,
+				remap = false,
+			},
+			{
+				"<M-d>t",
+				"<cmd>lua require'dap'.disconnect()<CR>",
+				desc = "Disconnect debug session",
+				nowait = false,
+				remap = false,
+			},
+			{
+				"<M-d>v",
+				"<cmd>lua require'dap.ui.variables'.hover()<CR>",
+				desc = "View variable value",
+				nowait = false,
+				remap = false,
+			},
+			{
+				"<M-d>w",
+				"<cmd>lua require'dap.ui.variables'.scopes()<CR>",
+				desc = "View scopes",
+				nowait = false,
+				remap = false,
+			},
+
+			-- Git Operations (se cambia <leader> por <M>)
+			{ "<M-g>", group = "Git", nowait = false, remap = false },
+			{ "<M-g>A", "<cmd>!git add .<CR>", desc = "Add all changes", nowait = false, remap = false },
+			{ "<M-g>B", "<cmd>Telescope git_branches<CR>", desc = "List git branches", nowait = false, remap = false },
+			{ "<M-g>a", "<cmd>!git add %:p<CR>", desc = "Add current file", nowait = false, remap = false },
+			{
+				"<M-g>b",
+				'<cmd>lua require("gitsigns").blame_line()<CR>',
+				desc = "Blame current line",
+				nowait = false,
+				remap = false,
+			},
+			{ "<M-g>c", group = "Conflict", nowait = false, remap = false },
+			{ "<M-g>h", group = "Hunk", nowait = false, remap = false },
+			{ "<M-g>i", "<cmd>Octo issue list<CR>", desc = "List GitHub issues", nowait = false, remap = false },
+			{ "<M-g>l", group = "Log", nowait = false, remap = false },
+			{ "<M-g>p", "<cmd>Octo pr list<CR>", desc = "List GitHub pull requests", nowait = false, remap = false },
+			{ "<M-g>s", "<cmd>Telescope git_status<CR>", desc = "Show git status", nowait = false, remap = false },
+			{ "<M-g>w", group = "Worktree", nowait = false, remap = false },
+
+			-- Gestión de Proyectos (se cambia <leader> por <M>)
+			{ "<M-p>", group = "Project", nowait = false, remap = false },
+			{ "<M-p>f", "<cmd>Telescope find_files<CR>", desc = "Find project file", nowait = false, remap = false },
+			{
+				"<M-p>l",
 				"<cmd>lua require'telescope'.extensions.repo.cached_list{file_ignore_patterns={'/%.cache/', '/%.cargo/', '/%.local/', '/%timeshift/', '/usr/', '/srv/', '/%.oh%-my%-zsh', '/Library/', '/%.cocoapods/'}}<CR>",
-				desc = "list",
+				desc = "List project repositories",
 				nowait = false,
 				remap = false,
 			},
-			{ "<leader>pr", desc = "refactor", nowait = false, remap = false },
-			{ "<leader>pt", "<cmd>TodoTrouble<CR>", desc = "todo", nowait = false, remap = false },
-			{ "<leader>pw", desc = "word", nowait = false, remap = false },
-			{ "<leader>q", desc = "quicklist", nowait = false, remap = false },
-			{ "<leader>r", group = "Refactor", nowait = false, remap = false },
-			{ "<leader>s", group = "Search", nowait = false, remap = false },
 			{
-				"<leader>sH",
+				"<M-p>r",
+				"<cmd>Trouble lsp_references<CR>",
+				desc = "Refactor project code",
+				nowait = false,
+				remap = false,
+			},
+			{ "<M-p>t", "<cmd>TodoTrouble<CR>", desc = "Show project TODOs", nowait = false, remap = false },
+			{ "<M-p>w", "<cmd>Telescope live_grep<CR>", desc = "Search project word", nowait = false, remap = false },
+
+			-- Quickfix y Búsqueda (se cambia <leader> por <M>)
+			{ "<M-q>", "<cmd>Telescope quickfix<CR>", desc = "Open quicklist", nowait = false, remap = false },
+			{ "<M-s>", group = "Search", nowait = false, remap = false },
+			{
+				"<M-s>H",
 				'<cmd>lua require("plugins.telescope").command_history()<CR>',
-				desc = "command history",
+				desc = "Command history",
 				nowait = false,
 				remap = false,
 			},
-			{ "<leader>sc", "<cmd>Telescope colorscheme<CR>", desc = "color schemes", nowait = false, remap = false },
+			{ "<M-s>c", "<cmd>Telescope colorscheme<CR>", desc = "Select colorscheme", nowait = false, remap = false },
 			{
-				"<leader>sd",
+				"<M-s>d",
 				'<cmd>lua require("plugins.telescope").edit_neovim()<CR>',
-				desc = "dotfiles",
+				desc = "Search and edit dotfiles",
 				nowait = false,
 				remap = false,
 			},
 			{
-				"<leader>sh",
+				"<M-s>h",
 				"<cmd>Telescope oldfiles hidden=true<CR>",
-				desc = "file history",
+				desc = "Show file history",
 				nowait = false,
 				remap = false,
 			},
-			{ "<leader>sq", "<cmd>Telescope quickfix<CR>", desc = "quickfix list", nowait = false, remap = false },
+			{ "<M-s>q", "<cmd>Telescope quickfix<CR>", desc = "Show quickfix list", nowait = false, remap = false },
 			{
-				"<leader>ss",
+				"<M-s>s",
 				"<cmd>Telescope search_history theme=dropdown<CR>",
-				desc = "search history",
+				desc = "Search history",
 				nowait = false,
 				remap = false,
 			},
-			{ "<leader>t", group = "Table Mode", nowait = false, remap = false },
-			{ "<leader>tm", desc = "toggle", nowait = false, remap = false },
-			{ "<leader>tt", desc = "tableize", nowait = false, remap = false },
-			{ "<leader>v", "<C-W>v", desc = "split right", nowait = false, remap = false },
+
+			-- Modo Tabla (se cambia <leader> por <M>)
+			{ "<M-t>", group = "Table Mode", nowait = false, remap = false },
+			{ "<M-t>m", "<cmd>TableModeToggle<CR>", desc = "Toggle table mode", nowait = false, remap = false },
+			{ "<M-t>t", "<cmd>Tableize<CR>", desc = "Tableize", nowait = false, remap = false },
+
+			-- Otras Acciones Notables (se mantiene <leader>)
+			{
+				"<CR>",
+				function()
+					if vim.opt.hlsearch:get() then
+						vim.cmd.nohl()
+						return ""
+					else
+						return "<CR>"
+					end
+				end,
+				desc = "Toggle search highlighting or execute enter",
+				expr = true,
+				nowait = false,
+				remap = false,
+			},
+			{
+				"]d",
+				vim.diagnostic.goto_next,
+				desc = "Go to the next diagnostic and show details",
+				nowait = false,
+				remap = false,
+			},
+			{
+				"[d",
+				vim.diagnostic.goto_prev,
+				desc = "Go to the previous diagnostic and show details",
+				nowait = false,
+				remap = false,
+			},
+			{ "<C-h>", "<C-w><C-h>", desc = "Move focus to the left split", nowait = false, remap = false },
+			{ "<C-l>", "<C-w><C-l>", desc = "Move focus to the right split", nowait = false, remap = false },
+			{ "<C-j>", "<C-w><C-j>", desc = "Move focus to the split below", nowait = false, remap = false },
+			{ "<C-k>", "<C-w><C-k>", desc = "Move focus to the split above", nowait = false, remap = false },
+			{
+				"<leader><leader>x",
+				'<cmd>source %<CR><cmd>lua print("File sourced")<CR>',
+				desc = "Source the current file and print a confirmation",
+				nowait = false,
+				remap = false,
+			},
+			{
+				"<leader>fz",
+				function()
+					vim.cmd([[normal zfaf]])
+				end,
+				desc = "Fold the current function",
+				nowait = false,
+				remap = false,
+			},
+			{ "n", "nzzzv", desc = "Jump to next search result and center cursor", nowait = false, remap = false },
+			{ "N", "Nzzzv", desc = "Jump to previous search result and center cursor", nowait = false, remap = false },
+			{ "J", "mzJ`z", desc = "Join lines without moving the cursor", nowait = false, remap = false },
+			{
+				"<leader>ee",
+				":vsp .env<CR>",
+				desc = "Open the .env file in a vertical split",
+				nowait = false,
+				remap = false,
+			},
+			{ "<M-,>", "<C-w>5<", desc = "Decrease split width by 5 columns", nowait = false, remap = false },
+			{ "<M-.>", "<C-w>5>", desc = "Increase split width by 5 columns", nowait = false, remap = false },
+			{ "<M-t>", "<C-W>5+", desc = "Increase split height by 5 rows", nowait = false, remap = false },
+			{ "<M-s>", "<C-W>5-", desc = "Decrease split height by 5 rows", nowait = false, remap = false },
+			{
+				"<M-j>",
+				function()
+					if vim.opt.diff:get() then
+						vim.cmd([[normal! ]c]])
+					else
+						vim.cmd([[m .+1<CR>==]])
+					end
+				end,
+				desc = "Move current line down or jump to next diff hunk",
+				nowait = false,
+				remap = false,
+			},
+			{
+				"<M-k>",
+				function()
+					if vim.opt.diff:get() then
+						vim.cmd([[normal! ]c]])
+					else
+						vim.cmd([[m .-2<CR>==]])
+					end
+				end,
+				desc = "Move current line up or jump to previous diff hunk",
+				nowait = false,
+				remap = false,
+			},
+
+			-- Conform Plugin (se mantiene <leader>)
+			{ "<leader>ff", "<cmd>Telescope find_files<CR>", desc = "Find files", nowait = false, remap = false },
+
+			-- Gitsigns Plugin (se mantiene <leader>)
+			{
+				"<leader>gB",
+				'<cmd>lua require("gitsigns").blame_line()<CR>',
+				desc = "Blame current line",
+				nowait = false,
+				remap = false,
+			},
+			{
+				"<leader>gh",
+				'<cmd>lua require("gitsigns").preview_hunk()<CR>',
+				desc = "Preview hunk",
+				nowait = false,
+				remap = false,
+			},
+
+			-- Harpoon Plugin (se mantiene <leader>)
+			{ "<leader>h", group = "Harpoon", nowait = false, remap = false },
+			{
+				"<leader>ha",
+				'<cmd>lua require("harpoon.mark").add_file()<CR>',
+				desc = "Add file to Harpoon",
+				nowait = false,
+				remap = false,
+			},
+			{
+				"<leader>hm",
+				'<cmd>lua require("harpoon.ui").toggle_quick_menu()<CR>',
+				desc = "Toggle Harpoon menu",
+				nowait = false,
+				remap = false,
+			},
+			{
+				"<leader>h1",
+				'<cmd>lua require("harpoon.ui").nav_file(1)<CR>',
+				desc = "Navigate to Harpoon file 1",
+				nowait = false,
+				remap = false,
+			},
+			{
+				"<leader>h2",
+				'<cmd>lua require("harpoon.ui").nav_file(2)<CR>',
+				desc = "Navigate to Harpoon file 2",
+				nowait = false,
+				remap = false,
+			},
+
+			-- nvim-lint Plugin (se mantiene <leader>)
+			{
+				"<leader>ll",
+				"<cmd>lua require('lint').try_lint()<CR>",
+				desc = "Run linter on current file",
+				nowait = false,
+				remap = false,
+			},
+
+			-- nvim-ufo Plugin (se mantiene <leader>)
+			{
+				"zR",
+				'<cmd>lua require("ufo").openAllFolds()<CR>',
+				desc = "Open all folds",
+				nowait = false,
+				remap = false,
+			},
+			{
+				"zM",
+				'<cmd>lua require("ufo").closeAllFolds()<CR>',
+				desc = "Close all folds",
+				nowait = false,
+				remap = false,
+			},
+
+			-- Telescope Plugin (se mantiene <leader>)
+			{ "<leader>ff", "<cmd>Telescope find_files<CR>", desc = "Find files", nowait = false, remap = false },
+			{ "<leader>fg", "<cmd>Telescope live_grep<CR>", desc = "Live grep", nowait = false, remap = false },
+			{ "<leader>fb", "<cmd>Telescope buffers<CR>", desc = "Find buffers", nowait = false, remap = false },
+			{ "<leader>fh", "<cmd>Telescope help_tags<CR>", desc = "Find help tags", nowait = false, remap = false },
 		}
 
+		-- Mapeos en modo visual
 		local visual_mode_mappings = {
-			mode = { "v" },
+			{ "<", "<gv", desc = "Decrease indent and retain selection", nowait = false, remap = false },
+			{ ">", ">gv", desc = "Increase indent and retain selection", nowait = false, remap = false },
 			{ "<leader>a", group = "Actions", nowait = false, remap = false },
 			{ "<leader>c", group = "LSP", nowait = false, remap = false },
-			{ "<leader>ca", desc = "range code action", nowait = false, remap = false },
-			{ "<leader>cf", desc = "range format", nowait = false, remap = false },
+			{
+				"<leader>ca",
+				"<cmd>lua vim.lsp.buf.range_code_action()<CR>",
+				desc = "Range code action",
+				nowait = false,
+				remap = false,
+			},
+			{
+				"<leader>cf",
+				"<cmd>lua vim.lsp.buf.range_formatting()<CR>",
+				desc = "Range format",
+				nowait = false,
+				remap = false,
+			},
 			{ "<leader>g", group = "Git", nowait = false, remap = false },
 			{ "<leader>gh", group = "Hunk", nowait = false, remap = false },
-			{ "<leader>ghr", desc = "reset hunk", nowait = false, remap = false },
-			{ "<leader>ghs", desc = "stage hunk", nowait = false, remap = false },
+			{
+				"<leader>ghr",
+				'<cmd>lua require("gitsigns").reset_hunk()<CR>',
+				desc = "Reset hunk",
+				nowait = false,
+				remap = false,
+			},
+			{
+				"<leader>ghs",
+				'<cmd>lua require("gitsigns").stage_hunk()<CR>',
+				desc = "Stage hunk",
+				nowait = false,
+				remap = false,
+			},
 			{ "<leader>p", group = "Project", nowait = false, remap = false },
-			{ "<leader>pr", desc = "refactor", nowait = false, remap = false },
+			{
+				"<leader>pr",
+				"<cmd>Trouble lsp_references<CR>",
+				desc = "Refactor project code",
+				nowait = false,
+				remap = false,
+			},
 			{ "<leader>r", group = "Refactor", nowait = false, remap = false },
-			{ "<leader>s", "<cmd>'<,'>sort<CR>", desc = "sort", nowait = false, remap = false },
+			{ "<leader>s", "<cmd>'<,'>sort<CR>", desc = "Sort selected text", nowait = false, remap = false },
 			{ "<leader>t", group = "Table Mode", nowait = false, remap = false },
-			{ "<leader>tt", desc = "tableize", nowait = false, remap = false },
+			{ "<leader>tt", "<cmd>Tableize<CR>", desc = "Tableize", nowait = false, remap = false },
 		}
 
-		-- ╭──────────────────────────────────────────────────────────╮
-		-- │ Register                                                 │
-		-- ╰──────────────────────────────────────────────────────────╯
+		-- Mapeos en modo terminal
+		local terminal_mode_mappings = {
+			{ "<Esc><Esc>", "<C-\\><C-n>", desc = "Exit terminal mode to normal mode", nowait = false, remap = false },
+			{
+				"<C-w>h",
+				"<C-\\><C-n><C-w>h",
+				desc = "Navigate to the left split from terminal mode",
+				nowait = false,
+				remap = false,
+			},
+			{
+				"<C-w>j",
+				"<C-\\><C-n><C-w>j",
+				desc = "Navigate to the split below from terminal mode",
+				nowait = false,
+				remap = false,
+			},
+			{
+				"<C-w>k",
+				"<C-\\><C-n><C-w>k",
+				desc = "Navigate to the split above from terminal mode",
+				nowait = false,
+				remap = false,
+			},
+			{
+				"<C-w>l",
+				"<C-\\><C-n><C-w>l",
+				desc = "Navigate to the right split from terminal mode",
+				nowait = false,
+				remap = false,
+			},
+		}
 
-		wk.add(normal_mode_mappings, opts)
-		wk.add(visual_mode_mappings, visual_opts)
+		wk.add(normal_mode_mappings, { mode = "n" })
+		wk.add(visual_mode_mappings, { mode = "v" })
+		wk.add(terminal_mode_mappings, { mode = "t" })
 
 		local function attach_markdown(bufnr)
 			wk.add({
