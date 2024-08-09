@@ -590,7 +590,6 @@ return {
 				remap = false,
 			},
 		}
-
 		wk.add(normal_mode_mappings, { mode = "n" })
 		wk.add(visual_mode_mappings, { mode = "v" })
 		wk.add(terminal_mode_mappings, { mode = "t" })
